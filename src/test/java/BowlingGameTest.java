@@ -13,4 +13,11 @@ public class BowlingGameTest {
         List<Integer> score = Arrays.asList(3, 4, 5, 4, 2, 6, 7, 2, 5, 3, 4, 3, 6, 3, 8, 1, 0, 9, 8, 1);
         assertEquals(84, bowlingGame.getTotalScore(score));
     }
+
+    @Test
+    public void should_return_total_score_when_strike() {
+        BowlingGame bowlingGame = new BowlingGame();
+        List<Integer> score = Arrays.asList(10, 5, 4, 2, 6, 10, 5, 3, 4, 3, 10, 10, 0, 9, 8, 1);
+        assertEquals(126, bowlingGame.getTotalScore(score));
+    }
 }
