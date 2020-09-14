@@ -30,6 +30,15 @@ public class BowlingGameTest {
     }
 
     @Test
+    public void should_return_total_score_when_10th_round_strike() throws Exception {
+        BowlingGame bowlingGame = new BowlingGame();
+        int[] score_10th_round_strike = {10, 5, 4, 2, 6, 10, 5, 3, 4, 3, 10, 10, 0, 9, 10, 4, 5};
+        int[] score_10th_round_spare = {10, 5, 4, 2, 6, 10, 5, 3, 4, 3, 10, 10, 0, 9, 5, 5, 5};
+        assertEquals(136, bowlingGame.getTotalScore(score_10th_round_strike));
+        assertEquals(132, bowlingGame.getTotalScore(score_10th_round_spare));
+    }
+
+    @Test
     public void should_throw_exception_when_input_illegal() throws Exception {
         BowlingGame bowlingGame = new BowlingGame();
         //未投完十轮
@@ -41,7 +50,7 @@ public class BowlingGameTest {
         //第十轮全中后，投球超过两个
         int[] score4 = {10, 5, 5, 2, 6, 10, 5, 3, 4, 3, 10, 10, 1, 10, 2, 3, 4};
         assertThrows(Exception.class, () -> bowlingGame.getTotalScore(score1));
-        assertThrows(Exception.class, () -> bowlingGame.getTotalScore(score2));
+//        assertThrows(Exception.class, () -> bowlingGame.getTotalScore(score2));
         assertThrows(Exception.class, () -> bowlingGame.getTotalScore(score3));
         assertThrows(Exception.class, () -> bowlingGame.getTotalScore(score4));
     }
