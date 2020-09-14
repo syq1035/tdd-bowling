@@ -6,10 +6,14 @@ public class BowlingGame {
         int totalScore = 0;
         for (int index = 0; index < score.size(); index++) {
             int oneRoundScore = 0;
-            if(score.get(index).equals(10)) {
+            if (score.get(index).equals(10)) {
                 oneRoundScore = 10 + score.get(index+1) + score.get(index+2);
+            } else if (score.get(index) + score.get(index+1) == 10) {
+                oneRoundScore = 10 + score.get(index+2);
+                index++;
             } else {
-                oneRoundScore = score.get(index) + score.get(++index);
+                oneRoundScore = score.get(index) + score.get(index+1);
+                index++;
             }
             totalScore += oneRoundScore;
         }

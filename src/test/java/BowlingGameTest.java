@@ -20,4 +20,11 @@ public class BowlingGameTest {
         List<Integer> score = Arrays.asList(10, 5, 4, 2, 6, 10, 5, 3, 4, 3, 10, 10, 0, 9, 8, 1);
         assertEquals(126, bowlingGame.getTotalScore(score));
     }
+
+    @Test
+    public void should_return_total_score_when_spare() {
+        BowlingGame bowlingGame = new BowlingGame();
+        List<Integer> score = Arrays.asList(10, 5, 5, 2, 6, 10, 5, 3, 4, 3, 10, 10, 1, 9, 8, 1);
+        assertEquals(141, bowlingGame.getTotalScore(score));
+    }
 }
